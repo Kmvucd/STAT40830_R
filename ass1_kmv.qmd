@@ -40,8 +40,8 @@ library(dplyr)
 library(knitr)
 library(latex2exp)
 library(readr)
-library(tidyr)
 library(plotly)
+library(tidyr)
 ```
 
 ## Read and Clean Data
