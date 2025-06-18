@@ -26,6 +26,7 @@ The CO2 dataset records carbon dioxide uptake in grass plants under varying cond
 -   uptake: CO2 uptake rate (response)
 
 ```{r}
+# Priniting first 5 records
 head(CO2)
 ```
 
