@@ -26,7 +26,7 @@ The CO2 dataset records carbon dioxide uptake in grass plants under varying cond
 -   uptake: CO2 uptake rate (response)
 
 ```{r}
-# Priniting first 5 records
+# Printing first 5 records
 head(CO2)
 ```
 
@@ -61,4 +61,3 @@ ggplot(avg_data, aes(x = conc, y = avg_uptake, color = Type)) +
 -   Plants from the two regions (*Quebec* and *Mississippi*) show increasing CO2 uptake with concentration.
 -   At every CO2 concentration level, both Quebec and Mississippi plants show increasing uptake, consistent with photosynthetic behavior.
 -   Quebec plants, exposed to generally warmer climates, may be physiologically adapted to higher efficiency, hence slightly higher CO₂ uptake at upper concentrations.
--   This experiment highlights how plant physiology may adapt to environmental conditions.
