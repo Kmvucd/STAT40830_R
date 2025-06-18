@@ -1,0 +1,63 @@
+---
+title: "STAT40830 - Homework 1"
+author: "Vimarish K M & 24229318"
+format: pdf
+editor: visual
+execute: 
+  echo: false
+---
+
+## Introduction
+
+The R data set CO2 measures the rate of CO2 uptake in grass plants under different environmental conditions. It is a classic data set used in ecological and physiological research. We are interested in how the uptake rate changes with CO2 concentration for different grass types. The data set contains 84 observations of CO2 uptake across different ambient concentration.
+
+## Exploring CO2 Uptake by Grass Type
+
+The CO2 dataset records carbon dioxide uptake in grass plants under varying conditions. It includes variables such as:
+
+-   Plant: ID
+
+-   Type: Grass type (Quebec or Mississippi)
+
+-   Treatment: Chilled or nonchilled
+
+-   conc: Ambient CO2 concentration
+
+-   uptake: CO2 uptake rate (response)
+
+```{r}
+head(CO2)
+```
+
+### Line Plot: Uptake vs CO₂ Concentration
+
+Below is a line plot showing average uptake for each type at different concentration levels.
+
+```{r}
+#| warning: false
+library(ggplot2)
+library(dplyr)
+
+
+# Aggregate average uptake by Type and concentration
+avg_data <- CO2 %>%
+  group_by(Type, conc) %>%
+  summarise(avg_uptake = mean(uptake), .groups = "drop")
+
+# Line plot
+ggplot(avg_data, aes(x = conc, y = avg_uptake, color = Type)) +
+  geom_line(size = 1.2) +
+  labs(
+    title = "CO2 Uptake by Grass Type Across Concentrations",
+    x = "Ambient CO2 Concentration (ppm)",
+    y = "Average Uptake (μmol/m²/s)"
+  ) +
+  theme_minimal()
+```
+
+## **Interpretation**
+
+-   Plants from the two regions (*Quebec* and *Mississippi*) show increasing CO2 uptake with concentration.
+-   At every CO2 concentration level, both Quebec and Mississippi plants show increasing uptake, consistent with photosynthetic behavior.
+-   Quebec plants, exposed to generally warmer climates, may be physiologically adapted to higher efficiency, hence slightly higher CO₂ uptake at upper concentrations.
+-   This experiment highlights how plant physiology may adapt to environmental conditions.
